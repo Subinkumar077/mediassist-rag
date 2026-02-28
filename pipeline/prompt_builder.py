@@ -16,12 +16,21 @@ TASK: Based on the patient case and the retrieved medical knowledge above, provi
   "top_diagnoses": [
     {{"name": "...", "confidence": "High/Medium/Low", "reasoning": "..."}}
   ],
-  "drug_interactions": ["..."],
+  "drug_interactions": [
+    {{"drugs": "Drug A + Drug B", "severity": "High/Moderate/Low", "detail": "Explanation of the interaction and clinical significance"}}
+  ],
   "red_flags": ["..."],
   "recommended_next_steps": ["..."],
   "sources_used": ["..."],
   "disclaimer": "This is AI-assisted decision support only. Final clinical judgment rests with the treating physician."
-}}"""
+}}
+
+IMPORTANT RULES FOR drug_interactions:
+- Carefully analyze every medication listed under Current Medications.
+- Check for drug-drug interactions between listed medications.
+- Check whether any listed medication is contraindicated or risky given the suspected diagnoses, the patient's medical history, age, and vitals.
+- If the patient lists no medications or there truly are no interactions, return an empty array [].
+- Do NOT skip this section. Always analyze it thoroughly."""
 
 def build_prompt(patient_data: dict, retrieved_chunks: list) -> str:
     context = "\n\n".join([

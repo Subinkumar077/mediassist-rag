@@ -1,0 +1,1 @@
+# MediAssist RAG – app package
