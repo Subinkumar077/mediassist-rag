@@ -6,6 +6,9 @@ A **Retrieval-Augmented Generation (RAG)** system that helps doctors analyze pat
 
 ---
 
+![alt text](image.png)
+![alt text](image-1.png)
+
 ## 🧠 How It Works
 
 ```
